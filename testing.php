@@ -3,7 +3,7 @@
 require __DIR__ . '/vendor/autoload.php';
 
 $client = new \GuzzleHttp\Client([
-    'base_uri' => 'http://symfonyrestapi.l',
+    'base_url' => 'http://symfonyrestapi.l',
     'defaults' => [
         'exceptions' => false,
     ]
