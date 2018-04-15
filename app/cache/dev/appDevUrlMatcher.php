@@ -311,6 +311,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // app_api_programmer_new
+        if ($pathinfo === '/api/programmers') {
+            if ($this->context->getMethod() != 'POST') {
+                $allow[] = 'POST';
+                goto not_app_api_programmer_new;
+            }
+
+            return array (  '_controller' => 'AppBundle\\Controller\\Api\\ProgrammerController::newAction',  '_route' => 'app_api_programmer_new',);
+        }
+        not_app_api_programmer_new:
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }
