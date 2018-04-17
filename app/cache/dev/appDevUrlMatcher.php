@@ -311,16 +311,30 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // app_api_programmer_new
-        if ($pathinfo === '/api/programmers') {
-            if ($this->context->getMethod() != 'POST') {
-                $allow[] = 'POST';
-                goto not_app_api_programmer_new;
-            }
+        if (0 === strpos($pathinfo, '/api/programmers')) {
+            // app_api_programmer_new
+            if ($pathinfo === '/api/programmers') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_app_api_programmer_new;
+                }
 
-            return array (  '_controller' => 'AppBundle\\Controller\\Api\\ProgrammerController::newAction',  '_route' => 'app_api_programmer_new',);
+                return array (  '_controller' => 'AppBundle\\Controller\\Api\\ProgrammerController::newAction',  '_route' => 'app_api_programmer_new',);
+            }
+            not_app_api_programmer_new:
+
+            // app_api_programmer_show
+            if (preg_match('#^/api/programmers/(?P<nickname>[^/]++)$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_app_api_programmer_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'app_api_programmer_show')), array (  '_controller' => 'AppBundle\\Controller\\Api\\ProgrammerController::showAction',));
+            }
+            not_app_api_programmer_show:
+
         }
-        not_app_api_programmer_new:
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }

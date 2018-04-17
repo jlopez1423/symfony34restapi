@@ -19,7 +19,6 @@ class ProgrammerController extends BaseController
      */
     public function newAction(Request $request)
     {
-//        $body = $request->getContent();
         $data = json_decode($request->getContent(), true);
 
         $programmer = new Programmer();
@@ -37,5 +36,25 @@ class ProgrammerController extends BaseController
         $response->headers->set('Location', '/some/programmer/url');
 
         return $response;
+    }
+
+    /**
+     * @Route("/api/programmers/{nickname}")
+     * @Method("GET")
+     */
+    public function showAction($nickname)
+    {
+        $programmer = $this->getDoctrine()
+            ->getRepository('AppBundle:Programmer')
+            ->findOneByNickname($nickname);
+
+        $data = [
+            'nickname'     => $programmer->getNickname(),
+            'avatarNumber' => $programmer->getAvatarNumber(),
+            'powerLevel'   => $programmer->getPowerLevel(),
+            'tagLine'      => $programmer->getTagLine(),
+        ];
+
+        return new Response(json_encode($data));
     }
 }

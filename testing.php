@@ -16,8 +16,12 @@ $data = [
     'tagLine'      => 'a test dev!',
 ];
 
+//1) POST to c reate the programmer
 $response = $client->post('/api/programmers', [
     'body' => json_encode($data),
 ]);
+
+//2)GET to fetch that programmer
+$response = $client->get('/api/programmers/' . $nickname);
 
 echo $response;
