@@ -323,16 +323,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
             not_app_api_programmer_new:
 
-            // app_api_programmer_show
+            // api_programmers_show
             if (preg_match('#^/api/programmers/(?P<nickname>[^/]++)$#s', $pathinfo, $matches)) {
                 if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
                     $allow = array_merge($allow, array('GET', 'HEAD'));
-                    goto not_app_api_programmer_show;
+                    goto not_api_programmers_show;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'app_api_programmer_show')), array (  '_controller' => 'AppBundle\\Controller\\Api\\ProgrammerController::showAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_programmers_show')), array (  '_controller' => 'AppBundle\\Controller\\Api\\ProgrammerController::showAction',));
             }
-            not_app_api_programmer_show:
+            not_api_programmers_show:
 
         }
 

@@ -16,12 +16,15 @@ $data = [
     'tagLine'      => 'a test dev!',
 ];
 
-//1) POST to c reate the programmer
+//1) POST to create the programmer
 $response = $client->post('/api/programmers', [
     'body' => json_encode($data),
 ]);
 
+$programmerUrl = $response->getHeader('Location');
+
 //2)GET to fetch that programmer
-$response = $client->get('/api/programmers/' . $nickname);
+$response = $client->get($programmerUrl);
 
 echo $response;
+echo "\n\n";

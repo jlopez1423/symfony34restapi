@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\VarDumper\VarDumper;
 
 class ProgrammerController extends BaseController
 {
@@ -32,14 +31,18 @@ class ProgrammerController extends BaseController
         $em->persist($programmer);
         $em->flush();
 
+        $location = $this->generateUrl('api_programmers_show', [
+            'nickname' => $programmer->getNickname()
+        ]);
+
         $response = new Response('It worked. Believe me I\'m an API!', 201);
-        $response->headers->set('Location', '/some/programmer/url');
+        $response->headers->set('Location', $location);
 
         return $response;
     }
 
     /**
-     * @Route("/api/programmers/{nickname}")
+     * @Route("/api/programmers/{nickname}", name="api_programmers_show")
      * @Method("GET")
      */
     public function showAction($nickname)
@@ -48,6 +51,10 @@ class ProgrammerController extends BaseController
             ->getRepository('AppBundle:Programmer')
             ->findOneByNickname($nickname);
 
+        if(!$programmer){
+            throw $this->createNotFoundException('No programmer found for username ' . $nickname);
+        }
+
         $data = [
             'nickname'     => $programmer->getNickname(),
             'avatarNumber' => $programmer->getAvatarNumber(),
@@ -55,6 +62,9 @@ class ProgrammerController extends BaseController
             'tagLine'      => $programmer->getTagLine(),
         ];
 
-        return new Response(json_encode($data));
+        $response =  new Response(json_encode($data));
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
     }
 }
