@@ -26,5 +26,8 @@ $programmerUrl = $response->getHeader('Location');
 //2)GET to fetch that programmer
 $response = $client->get($programmerUrl);
 
+//3)GET to fetch that programmers
+$response = $client->get('api/programmers');
+
 echo $response;
 echo "\n\n";

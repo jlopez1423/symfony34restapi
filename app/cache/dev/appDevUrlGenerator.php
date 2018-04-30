@@ -49,6 +49,7 @@ class appDevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
         'security_logout' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'AppBundle\\Controller\\Web\\UserController::logoutAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/logout',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
         'app_api_programmer_new' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'AppBundle\\Controller\\Api\\ProgrammerController::newAction',  ),  2 =>   array (    '_method' => 'POST',  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/api/programmers',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
         'api_programmers_show' => array (  0 =>   array (    0 => 'nickname',  ),  1 =>   array (    '_controller' => 'AppBundle\\Controller\\Api\\ProgrammerController::showAction',  ),  2 =>   array (    '_method' => 'GET',  ),  3 =>   array (    0 =>     array (      0 => 'variable',      1 => '/',      2 => '[^/]++',      3 => 'nickname',    ),    1 =>     array (      0 => 'text',      1 => '/api/programmers',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
+        'app_api_programmer_list' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'AppBundle\\Controller\\Api\\ProgrammerController::listAction',  ),  2 =>   array (    '_method' => 'GET',  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/api/programmers',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
     );
 
     /**

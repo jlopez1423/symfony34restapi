@@ -5,6 +5,7 @@ namespace AppBundle\Controller\Api;
 use AppBundle\Entity\Programmer;
 use AppBundle\Controller\BaseController;
 use AppBundle\Form\ProgrammerType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -35,7 +36,9 @@ class ProgrammerController extends BaseController
             'nickname' => $programmer->getNickname()
         ]);
 
-        $response = new Response('It worked. Believe me I\'m an API!', 201);
+        $data = $this->serializeProgrammer($programmer);
+
+        $response = new JsonResponse($data, 201);
         $response->headers->set('Location', $location);
 
         return $response;
@@ -55,16 +58,40 @@ class ProgrammerController extends BaseController
             throw $this->createNotFoundException('No programmer found for username ' . $nickname);
         }
 
-        $data = [
+        $data = $this->serializeProgrammer($programmer);
+
+        $response = new JsonResponse($data, 201);
+
+        return $response;
+    }
+
+    /**
+     * @Route("/api/programmers")
+     * @Method("GET")
+     */
+    public function listAction()
+    {
+        $programmers = $this->getDoctrine()
+            ->getRepository('AppBundle:Programmer')
+            ->findAll();
+
+        $data = ['programmers' => []];
+
+        foreach ($programmers as $programmer) {
+            $data['programmers'][] = $this->serializeProgrammer($programmer);
+        }
+
+        $response = new JsonResponse($data, 201);
+        return $response;
+    }
+
+    private function serializeProgrammer(Programmer $programmer)
+    {
+        return [
             'nickname'     => $programmer->getNickname(),
             'avatarNumber' => $programmer->getAvatarNumber(),
             'powerLevel'   => $programmer->getPowerLevel(),
             'tagLine'      => $programmer->getTagLine(),
         ];
-
-        $response =  new Response(json_encode($data));
-        $response->headers->set('Content-Type', 'application/json');
-
-        return $response;
     }
 }

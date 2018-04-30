@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4425e53-91ce-412b-8cec-a8951e31e7a5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/app/cache/dev/appDevUrlGenerator.php" afterPath="$PROJECT_DIR$/app/cache/dev/appDevUrlGenerator.php" />
       <change beforePath="$PROJECT_DIR$/app/cache/dev/appDevUrlMatcher.php" afterPath="$PROJECT_DIR$/app/cache/dev/appDevUrlMatcher.php" />
@@ -23,24 +22,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ProgrammerController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ProgrammerController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/Api/ProgrammerController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="38" column="53" lean-forward="false" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
+            <state relative-caret-position="64">
+              <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
               <folding>
                 <element signature="e#44#76#0#PHP" expanded="true" />
-                <element signature="e#1459#1481#1#PHP" expanded="true" />
+                <element signature="e#2071#2093#1#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testing.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="testing.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/testing.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="16" column="2" lean-forward="false" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+            <state relative-caret-position="185">
+              <caret line="19" column="47" lean-forward="false" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -203,7 +202,8 @@
       <workItem from="1521170417026" duration="945000" />
       <workItem from="1523590972764" duration="6673000" />
       <workItem from="1523937068796" duration="799000" />
-      <workItem from="1524107970723" duration="1218000" />
+      <workItem from="1524107970723" duration="1275000" />
+      <workItem from="1525055314741" duration="1493000" />
     </task>
     <task id="LOCAL-00001" summary="edit : fixed malformed url">
       <created>1523628628895</created>
@@ -233,11 +233,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523938159868</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added a Url to programmer">
+      <created>1524109435494</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1524109435494</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9635000" />
+    <option name="totallyTimeSpent" value="11185000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="23" width="1366" height="745" extended-state="6" />
@@ -274,7 +281,8 @@
     <MESSAGE value="edit : fixed approved ips" />
     <MESSAGE value="added new programmer and programmer create form." />
     <MESSAGE value="added get programmer method" />
-    <option name="LAST_COMMIT_MESSAGE" value="added get programmer method" />
+    <MESSAGE value="added a Url to programmer" />
+    <option name="LAST_COMMIT_MESSAGE" value="added a Url to programmer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -287,7 +295,26 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#44#76#0#PHP" expanded="true" />
-            <element signature="e#1459#1481#1#PHP" expanded="true" />
+            <element signature="e#2071#2093#1#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="2" lean-forward="false" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/Api/ProgrammerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#44#76#0#PHP" expanded="true" />
+            <element signature="e#2071#2093#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -380,22 +407,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testing.php">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/Api/ProgrammerController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="16" column="2" lean-forward="false" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
-          <folding />
+        <state relative-caret-position="64">
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding>
+            <element signature="e#44#76#0#PHP" expanded="true" />
+            <element signature="e#2071#2093#1#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/Api/ProgrammerController.php">
+    <entry file="file://$PROJECT_DIR$/testing.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="38" column="53" lean-forward="false" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
-          <folding>
-            <element signature="e#44#76#0#PHP" expanded="true" />
-            <element signature="e#1459#1481#1#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="185">
+          <caret line="19" column="47" lean-forward="false" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
     </entry>
