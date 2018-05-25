@@ -2,12 +2,17 @@
 
 namespace AppBundle\Tests\Controller\API;
 
-use AppBundle\Controller\Api\ProgrammerController;
 use AppBundle\Test\ApiTestCase;
-use GuzzleHttp\Client;
 
 class ProgrammerControllerTest extends ApiTestCase
 {
+    public function setup()
+    {
+        parent::setUp();
+
+        $this->createUser('weaverryan');
+    }
+
     public function testPOST()
     {
         $data = [

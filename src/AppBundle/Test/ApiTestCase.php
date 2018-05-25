@@ -2,7 +2,9 @@
 
 namespace AppBundle\Test;
 
+use AppBundle\Entity\User;
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
+use Doctrine\ORM\EntityManager;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Message\AbstractMessage;
@@ -37,7 +39,7 @@ class ApiTestCase extends KernelTestCase
     public static function setUpBeforeClass()
     {
         self::$staticClient = new Client([
-            'base_url' => 'http://localhost:8000',
+            'base_url' => 'http://symfonyrestapi.l:80',
             'defaults' => [
                 'exceptions' => false
             ]
@@ -208,5 +210,29 @@ class ApiTestCase extends KernelTestCase
         $output = $this->formatterHelper->formatBlock($string, 'bg=red;fg=white', true);
 
         $this->printDebug($output);
+    }
+
+    protected function createUser($username, $plainPassword = 'foo')
+    {
+        $user = new User();
+        $user->setUsername($username);
+        $user->setEmail($username . '@foo.com');
+        $password = $this->getService('security.password_encoder')
+            ->encodePassword($user, $plainPassword);
+        $user->setPassword($password);
+
+        $em = $this->getEntityManager();
+        $em->persist($user);
+        $em->flush();
+
+        return $user;
+    }
+
+    /**
+     * @return EntityManager
+     */
+    protected function getEntityManager()
+    {
+        return $this->getService('doctrine.orm.entity_manager');
     }
 }

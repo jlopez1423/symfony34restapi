@@ -5,3 +5,5 @@ e3f58e,192.168.10.10,GET,http://symfonyrestapi.l/api/programmers,1525747243,0fa6
 0fa62e,192.168.10.10,POST,http://symfonyrestapi.l/api/programmers,1525747243,
 6405c8,192.168.10.10,GET,http://symfonyrestapi.l/api/programmers,1525747603,a524e7
 a524e7,192.168.10.10,POST,http://symfonyrestapi.l/api/programmers,1525747603,
+54d32a,192.168.10.10,HEAD,http://symfonyrestapi.l/,1527095141,
+8005c0,192.168.10.10,POST,http://symfonyrestapi.l/api/programmers,1527095169,

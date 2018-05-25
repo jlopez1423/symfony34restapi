@@ -2,6 +2,7 @@
 
 namespace AppBundle\Test;
 
+use AppBundle\Entity\User;
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 use Exception;
 use GuzzleHttp\Client;
